@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const logger = require('morgan');
+app.use(logger('dev'))
 
 const customers = [
   {
@@ -46,6 +48,6 @@ app.get('/api/v1/clients/:id', (req, res) => {
   res.json(clients[req.params.id]);
 });
 
-app.listen(10000, () => {
+app.listen(3000, () => {
   console.log(`Server started!`);
 });
